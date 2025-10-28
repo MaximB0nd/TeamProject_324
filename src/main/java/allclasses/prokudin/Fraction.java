@@ -1,20 +1,22 @@
 package allclasses.prokudin;
 
-import java.nio.file.AccessDeniedException;
-
-public class Fraction {
+public class Fraction implements Comparable<Fraction> {
 
     public int Numerator;
     public int Denominator;
 
     public Fraction(int numerator, int denominator) {
-        Numerator =  numerator;
-        Denominator = denominator;
+        if (denominator == 0) {
+            IO.println("Error: Denominator is zero");
+        }
+        else {
+            Numerator =  numerator;
+            Denominator = denominator;
+        }
     };
 
-    public Fraction() {
-        Numerator = 0;
-        Denominator = 0;
+    public Fraction() throws Exception {
+        throw new Exception("Error: Denominator is zero");
     };
 
     private int GCD(int numerator, int denominator) {
@@ -57,7 +59,7 @@ public class Fraction {
         return result;
     };
 
-    static public Fraction Substraction(Fraction fraction_a, Fraction fraction_b) {
+    static public Fraction Sub(Fraction fraction_a, Fraction fraction_b) {
         int numerator = 0;
         int denominator = 0;
 
@@ -96,5 +98,15 @@ public class Fraction {
         result.Reduction();
         return result;
     };
+
+    @Override
+    public int compareTo(Fraction o) {
+        if (o.Denominator == this.Denominator) {
+            return Integer.compare(this.Numerator, o.Numerator);
+        }
+        else {
+            return Integer.compare(this.Numerator * o.Denominator, o.Numerator * this.Numerator);
+        }
+    }
 
 }
