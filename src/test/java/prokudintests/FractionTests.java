@@ -63,4 +63,41 @@ public class FractionTests {
         Fraction actual = new Fraction(1, 6);
         Assert.assertEquals(0, fact.compareTo(actual));
     }
+
+    @Test
+    public void get_fractions_multi_when_fractions_valid() {
+        Fraction fraction_a = new Fraction(2,3);
+        Fraction fraction_b = new Fraction(4,5);
+        Fraction fact = Fraction.Multi(fraction_a, fraction_b);
+        Fraction actual = new Fraction(8, 15);
+        Assert.assertEquals(0, fact.compareTo(actual));
+    }
+
+    @Test
+    public void get_fractions_multi_with_reduction_when_fractions_valid() {
+        Fraction fraction_a = new Fraction(2,4);
+        Fraction fraction_b = new Fraction(2,6);
+        Fraction fact = Fraction.Multi(fraction_a, fraction_b);
+        Fraction actual = new Fraction(1, 6);
+        Assert.assertEquals(0, fact.compareTo(actual));
+    }
+
+
+    @Test
+    public void get_fractions_div_when_fractions_valid() {
+        Fraction fraction_a = new Fraction(2,3);
+        Fraction fraction_b = new Fraction(3,5);
+        Fraction fact = Fraction.Div(fraction_a, fraction_b);
+        Fraction actual = new Fraction(10, 9);
+        Assert.assertEquals(0, fact.compareTo(actual));
+    }
+
+    @Test
+    public void get_fractions_div_with_reduction_when_fractions_valid() {
+        Fraction fraction_a = new Fraction(2,4);
+        Fraction fraction_b = new Fraction(2,6);
+        Fraction fact = Fraction.Div(fraction_a, fraction_b);
+        Fraction actual = new Fraction(3, 2);
+        Assert.assertEquals(0, fact.compareTo(actual));
+    }
 }
