@@ -1,9 +1,20 @@
+import allclasses.bartasevich.Complex;
+
 public class Main {
-    static void bondarevMethod() {
+    public static void bondarevMethod() {
         System.out.println("asdasd");
     }
 
-    static void main() {
+    public static void main() {
         bondarevMethod();
+        BartasevichMethod();
+    }
+    public static void BartasevichMethod(){
+
+        Complex complex = new Complex();
+        Complex complex1 = new Complex(2, 4);
+        double modd = complex1.Abs();
+        System.out.println(modd);
+
     }
 }
