@@ -21,4 +21,8 @@ public double Abs(){
 
 
 }
+    public void AddComplex(double re, double im){
+        this.re = re+re;
+        this.im = im+im;
+    }
 }
