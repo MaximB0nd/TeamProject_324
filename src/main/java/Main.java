@@ -1,9 +1,10 @@
+import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
 
 public class Main {
-    static void bondarevMethod() {
+    public static void bondarevMethod() {
         System.out.println("asdasd");
     }
     
@@ -33,10 +34,20 @@ public class Main {
         secondBook.returnBook();
         secondBook.returnBook();
     }
+  
+  public static void BartasevichMethod(){
+
+        Complex complex = new Complex();
+        Complex complex1 = new Complex(2, 4);
+        double modd = complex1.Abs();
+        System.out.println(modd);
+    }
 
     public static void main(String[] args) {
         bondarevMethod();
+        BartasevichMethod();
         testWallet();
         larinMethod();
     }
+    
 }
