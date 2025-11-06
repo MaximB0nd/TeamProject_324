@@ -1,5 +1,6 @@
 import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
+import allclasses.larin.Book;
 
 public class Main {
     static void bondarevMethod() {
@@ -21,8 +22,21 @@ public class Main {
         wallet.getHistorySnapshot().forEach(System.out::println);
     }
 
+    static void larinMethod()
+    {
+        System.out.println("Test work book class:");
+        Book firstBook = new Book("Алгоритмы и структуры данных", true);
+        firstBook.borrowBook();
+        firstBook.returnBook();
+        Book secondBook = new Book("Два капитана", false);
+        secondBook.borrowBook();
+        secondBook.returnBook();
+        secondBook.returnBook();
+    }
+
     public static void main(String[] args) {
         bondarevMethod();
         testWallet();
+        larinMethod();
     }
 }
