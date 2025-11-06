@@ -1,9 +1,15 @@
+package allclasses.martyshev;
+
+
+
 public class Main {
-    static void bondarevMethod() {
-        System.out.println("asdasd");
+    public static void martyshevMethod() {
+        SomeClass.Person person = new SomeClass.Person("Иван", 22);
+        person.sayHello();
+        System.out.println("Через 5 лет ему будет: " + person.getAgeInFiveYears());
     }
 
-    static void main() {
-        bondarevMethod();
+    public static void main(String[] args) {
+        martyshevMethod();
     }
 }
