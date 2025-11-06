@@ -45,7 +45,6 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
-
     @Test
     public void get_fractions_sub_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,3);
