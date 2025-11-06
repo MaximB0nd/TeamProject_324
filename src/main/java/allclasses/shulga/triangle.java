@@ -12,12 +12,12 @@ public class triangle {
         c = _c;
     }
 
-    public bool IsExist(){
-        if (a+b <= c) return False;
-        if (a+c <= b) return False;
-        if (b+c <= a) return False;
+    public boolean IsExist(){
+        if (a+b <= c) return false;
+        if (a+c <= b) return false;
+        if (b+c <= a) return false;
 
-        return True;
+        return true;
     }
 
     public double GetPerimetr(){
@@ -25,7 +25,7 @@ public class triangle {
     }
 
     public double GetSquare(){
-        dobule half_p = (a+b+c)/2;
+        double half_p = (a+b+c)/2;
 
         return Math.sqrt(half_p * (half_p - a) * (half_p - b) * (half_p - c));
     }
