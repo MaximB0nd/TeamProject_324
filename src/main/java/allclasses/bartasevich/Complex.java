@@ -1,10 +1,13 @@
 package allclasses.bartasevich;
 
+import static java.lang.Math.atan;
 import static java.lang.Math.sqrt;
 
 public class Complex {
     private double im;
     private double re;
+    public double getRe(){ return re;}
+    public double getIm() {return im;}
     public Complex(){
         im=0;
         re=0;
@@ -14,7 +17,7 @@ public class Complex {
         this.im = im;
     }
 public double Arg(){
-        return im/re;
+        return atan(im/re);
 }
 public double Abs(){
     return sqrt(re*re + im*im);
@@ -22,7 +25,11 @@ public double Abs(){
 
 }
     public void AddComplex(double re, double im){
-        this.re = re+re;
-        this.im = im+im;
+        this.re = this.re+re;
+        this.im = this.im+im;
+    }
+    public void AddComplex(Complex complex){
+        this.re = this.re + complex.re;
+        this.im = this.im + complex.im;
     }
 }

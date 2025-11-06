@@ -5,7 +5,7 @@ public class Main {
         System.out.println("asdasd");
     }
 
-    public static void main() {
+    public static void main(String[] args) {
         bondarevMethod();
         BartasevichMethod();
     }
