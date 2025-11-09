@@ -1,28 +1,29 @@
-import allclasses.prokofev.WalletProkofev;
-import java.math.BigDecimal;
+import allclasses.Simonenko.Fractions;
 
-public class Main {
-    static void bondarevMethod() {
-        System.out.println("asdasd");
-    }
-    
-    static void testWallet() {
-        System.out.println("\n=== Testing WalletProkofev ===");
-        WalletProkofev wallet = new WalletProkofev("TestUser");
-        System.out.println("Created wallet: " + wallet);
-        
-        wallet.deposit(new BigDecimal("100.50"), "Initial deposit");
-        System.out.println("After deposit: " + wallet.getBalance());
-        
-        wallet.withdraw(new BigDecimal("30.00"), "Purchase");
-        System.out.println("After withdraw: " + wallet.getBalance());
-        
-        System.out.println("History:");
-        wallet.getHistorySnapshot().forEach(System.out::println);
-    }
+    public class Main {
+        public static void main(String[] args) {
+            SimonenkoMetod();
+        }
+            public static void SimonenkoMetod () {
+                // Создание дробей
+                Fractions frac1 = new Fractions(1, 2);
+                Fractions frac2 = new Fractions(3, 4);
+                Fractions frac3 = new Fractions(5);
 
-    public static void main(String[] args) {
-        bondarevMethod();
-        testWallet();
-    }
-}
+                System.out.println("Дробь 1: " + frac1);
+                System.out.println("Дробь 2: " + frac2);
+                System.out.println("Дробь 3: " + frac3);
+
+                // Сложение
+                Fractions sum = frac1.add(frac2);
+                System.out.println(frac1 + " + " + frac2 + " = " + sum);
+
+                // Вычитание
+                Fractions difference = frac1.subtract(frac2);
+                System.out.println(frac1 + " - " + frac2 + " = " + difference);
+
+                // Сокращение дробей
+                Fractions simplified = new Fractions(4, 8);
+                System.out.println("Сокращение 4/8: " + simplified);
+            }
+        }
