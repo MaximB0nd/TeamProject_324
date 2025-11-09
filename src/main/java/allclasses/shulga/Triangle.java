@@ -1,15 +1,28 @@
 package allclasses.shulga;
+import java.lang.Math;
 
-public class triangle {
-
+public class Triangle
+{
     private double a;
     private double b;
     private double c;
 
-    public triangle (int _a, int _b, int _c){
+    public Triangle (double _a, double _b, double _c){
         a = _a;
         b = _b;
         c = _c;
+    }
+
+    public double GetA(){
+        return a;
+    }
+
+    public double GetB(){
+        return b;
+    }
+
+    public double GetC(){
+        return c;
     }
 
     public boolean IsExist(){
@@ -27,8 +40,6 @@ public class triangle {
     public double GetSquare(){
         double half_p = (a+b+c)/2;
 
-        return Math.sqrt(half_p * (half_p - a) * (half_p - b) * (half_p - c));
+        return Math.pow(half_p * (half_p - a) * (half_p - b) * (half_p - c), 0.5);
     }
-
-
 }
