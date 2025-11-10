@@ -1,3 +1,4 @@
+import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
@@ -45,6 +46,12 @@ public class Main {
         System.out.println("History:");
         wallet.getHistorySnapshot().forEach(System.out::println);
     }
+  
+    static void mosolovaMethod() {
+        Rectangle rect = new Rectangle(5, 10);
+        System.out.println("Прямоугольник 5x10:");
+        System.out.println("Площадь: " + rect.getArea());
+        System.out.println("Периметр: " + rect.getPerimeter());
 
     static void larinMethod()
     {
@@ -101,6 +108,7 @@ public class Main {
 
     public static void main(String[] args) {
         bondarevMethod();
+        mosolovaMethod();
         BartasevichMethod();
         testWallet();
         larinMethod();
