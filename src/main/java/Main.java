@@ -3,12 +3,25 @@ import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
 import allclasses.shulga.Triangle;
+import allclasses.valaeva.Cat;
 
 public class Main {
     public static void bondarevMethod() {
         System.out.println("asdasd");
     }
-    
+
+    static void ValaevaMethod() {
+        System.out.println("\n=== Testing Cat Valaeva ===");
+
+
+        Cat cat = new Cat("Гера", 3, 4.5, "серый");
+        System.out.println("Кошка: " + cat.getInfo());
+
+        System.out.println(cat.eat());
+        System.out.println(cat.sleep());
+
+        System.out.println("Толстая ли кошка? " + cat.isFat());
+    }
     static void testWallet() {
         System.out.println("\n=== Testing WalletProkofev ===");
         WalletProkofev wallet = new WalletProkofev("TestUser");
@@ -83,6 +96,7 @@ public class Main {
         testWallet();
         larinMethod();
         shulgaMethods();
+        ValaevaMethod();
     }
     
 }
