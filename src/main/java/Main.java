@@ -2,11 +2,20 @@ import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
+import allclasses.bondarev.Mark;
 import allclasses.shulga.Triangle;
+
 
 public class Main {
     public static void bondarevMethod() {
-        System.out.println("asdasd");
+        Mark firstMark = new Mark(4);
+        Mark secondMark = new Mark(0);
+        Mark thirdMark = new Mark(5);
+        Mark fourthMark = new Mark(10);
+        firstMark.get();
+        secondMark.plus();
+        thirdMark.minus();
+        fourthMark.set(5);
     }
     
     static void testWallet() {
@@ -36,7 +45,7 @@ public class Main {
         secondBook.returnBook();
     }
   
-  public static void BartasevichMethod(){
+    public static void BartasevichMethod(){
 
         Complex complex = new Complex();
         Complex complex1 = new Complex(2, 4);
@@ -84,5 +93,5 @@ public class Main {
         larinMethod();
         shulgaMethods();
     }
-    
+
 }
