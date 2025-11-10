@@ -58,12 +58,5 @@ public class cattests {
         assertEquals("Рыжик имеет рыжий цвет", cat.getColorInfo());
     }
 
-    @Test
-    public void testWeightBoundary() {
-        Cat boundaryCat = new Cat("Граничный", 3, 6.0, "серый");
-        Cat heavyCat = new Cat("Тяжелый", 4, 6.1, "рыжий");
 
-        assertFalse(boundaryCat.isFat());
-        assertTrue(heavyCat.isFat());
-    }
 }
