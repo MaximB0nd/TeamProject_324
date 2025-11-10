@@ -3,6 +3,8 @@ import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
 import allclasses.bondarev.Mark;
+import allclasses.shulga.Triangle;
+
 
 public class Main {
     public static void bondarevMethod() {
@@ -51,11 +53,45 @@ public class Main {
         System.out.println(modd);
     }
 
-    static void main(String[] args) {
+    public static void shulgaMethods(){
+        Triangle tr1 = new Triangle(1, 2, 3);
+        Triangle tr2 = new Triangle(12, 12, 20);
+
+        System.out.println("\nТреугольник 1 со сторонами А = " + tr1.GetA() + ", B = " + tr1.GetB() + ", C = " + tr1.GetC());
+        System.out.println("Треугольник 2 со сторонами А = " + tr2.GetA() + ", B = " + tr2.GetB() + ", C = " + tr2.GetC());
+
+        System.out.println("\nПроверка что треугольники существуют:");
+        if (tr1.IsExist()) {
+            System.out.println("Треугольник 1 существует");
+        } else {
+            System.out.println("Треугольник 1 НЕ существует");
+        }
+
+        if (tr2.IsExist()) {
+            System.out.println("Треугольник 2 существует\n");
+        } else {
+            System.out.println("Треугольник 2 НЕ существует\n");
+        }
+
+        if (tr1.IsExist()){
+            System.out.println("Площадь треугольника 1: "+ tr1.GetSquare());
+            System.out.println("Периметр треугольника 1: " + tr1.GetPerimetr());
+        }
+
+        if (tr2.IsExist()){
+            System.out.println("Площадь треугольника 2: "+ tr2.GetSquare());
+            System.out.println("Периметр треугольника 2: " + tr2.GetPerimetr());
+        }
+
+        return;
+    }
+
+    public static void main(String[] args) {
         bondarevMethod();
         BartasevichMethod();
         testWallet();
         larinMethod();
+        shulgaMethods();
     }
 
 }
