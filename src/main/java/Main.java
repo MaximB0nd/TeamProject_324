@@ -119,7 +119,7 @@ public class Main {
                 "Test123qwe!", // содержит "qwe" - запрещенная последовательность
         };
 
-        System.out.println("Тестирование надежности паролей:\n");
+        System.out.println("\n\nТестирование надежности паролей:\n");
 
         for (String pwd : testPasswords) {
             Password password = new Password(pwd);
@@ -127,7 +127,6 @@ public class Main {
 
             System.out.println("Пароль: " + pwd);
             System.out.println("Надежный: " + (isPowerful ? "ДА" : "НЕТ"));
-            System.out.println("---");
         }
     }
 
