@@ -2,6 +2,7 @@ import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
+import allclasses.volkova.House;
 
 public class Main {
     public static void bondarevMethod() {
@@ -34,6 +35,18 @@ public class Main {
         secondBook.returnBook();
         secondBook.returnBook();
     }
+
+    static void volkovaMethod()
+    {
+        System.out.println("Test work house class:");
+        House firstHouse = new House("ул. Ленина, 10", 2, 85.5, "белый");
+        firstHouse.build();
+        firstHouse.renovate();
+        House secondHouse = new House("ул. Центральная, 25", 3, 150.8, "желтый");
+        secondHouse.build();
+        secondHouse.renovate();
+        secondHouse.renovate();
+    }
   
   public static void BartasevichMethod(){
 
@@ -48,6 +61,7 @@ public class Main {
         BartasevichMethod();
         testWallet();
         larinMethod();
+        volkovaMethod();
     }
     
 }
