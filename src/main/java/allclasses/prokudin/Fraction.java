@@ -1,4 +1,5 @@
 package allclasses.prokudin;
+import java.lang.Math;
 
 public class Fraction implements Comparable<Fraction> {
 
