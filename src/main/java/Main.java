@@ -1,3 +1,4 @@
+import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
@@ -64,6 +65,15 @@ public class Main {
         secondBook.borrowBook();
         secondBook.returnBook();
         secondBook.returnBook();
+    }
+    static void prokudinMethod() {
+        Fraction fraction_a = new Fraction(1, 2);
+        Fraction fraction_b = new Fraction(3, 4);
+
+        System.out.println("Sum" + Fraction.Sum(fraction_a, fraction_b));
+        System.out.println("Sub" + Fraction.Sub(fraction_a, fraction_b));
+        System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
+        System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
     }
   
     public static void BartasevichMethod(){
