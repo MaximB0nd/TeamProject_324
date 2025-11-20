@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    user: root
+    ports:
+      - "8080:8080"    # Web интерфейс Jenkins
+      - "50000:50000"  # Порт для агентов Jenkins
+    volumes:
+      - jenkins_home:/var/jenkins_home  # Постоянное хранилище данных Jenkins
+      - /var/run/docker.sock:/var/run/docker.sock  # Доступ к Docker из контейнера
+      - /usr/bin/docker:/usr/bin/docker  # Docker CLI в контейнере
+    # Раскомментируйте следующую строку для автоматической установки без мастера настройки
+    # environment:
+    #   - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+    restart: unless-stopped
+    networks:
+      - jenkins-network
+
+volumes:
+  jenkins_home:
+    driver: local
+
+networks:
+  jenkins-network:
+    driver: bridge
+

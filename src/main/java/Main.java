@@ -2,7 +2,6 @@ import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
-import allclasses.larin.Book;
 import allclasses.bondarev.Mark;
 import allclasses.shulga.Triangle;
 import allclasses.valaeva.Cat;
@@ -52,19 +51,8 @@ public class Main {
         System.out.println("Прямоугольник 5x10:");
         System.out.println("Площадь: " + rect.getArea());
         System.out.println("Периметр: " + rect.getPerimeter());
-
-    static void larinMethod()
-    {
-        System.out.println("Test work book class:");
-        Book firstBook = new Book("Алгоритмы и структуры данных", true);
-        firstBook.borrowBook();
-        firstBook.returnBook();
-        Book secondBook = new Book("Два капитана", false);
-        secondBook.borrowBook();
-        secondBook.returnBook();
-        secondBook.returnBook();
     }
-  
+
     public static void BartasevichMethod(){
 
         Complex complex = new Complex();
@@ -111,7 +99,6 @@ public class Main {
         mosolovaMethod();
         BartasevichMethod();
         testWallet();
-        larinMethod();
         shulgaMethods();
         ValaevaMethod();
     }
