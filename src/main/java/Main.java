@@ -19,7 +19,7 @@ public class Main {
         fourthMark.set(5);
     }
 
-    static void ValaevaMethod() {
+    public static void ValaevaMethod() {
         System.out.println("\n=== Testing Cat Valaeva ===");
 
 
@@ -31,22 +31,22 @@ public class Main {
 
         System.out.println("Толстая ли кошка? " + cat.isFat());
     }
-    static void testWallet() {
+    public static void testWallet() {
         System.out.println("\n=== Testing WalletProkofev ===");
         WalletProkofev wallet = new WalletProkofev("TestUser");
         System.out.println("Created wallet: " + wallet);
-        
+
         wallet.deposit(new BigDecimal("100.50"), "Initial deposit");
         System.out.println("After deposit: " + wallet.getBalance());
-        
+
         wallet.withdraw(new BigDecimal("30.00"), "Purchase");
         System.out.println("After withdraw: " + wallet.getBalance());
-        
+
         System.out.println("History:");
         wallet.getHistorySnapshot().forEach(System.out::println);
     }
 
-    static void larinMethod()
+    public static void larinMethod()
     {
         System.out.println("Test work book class:");
         Book firstBook = new Book("Алгоритмы и структуры данных", true);
@@ -57,9 +57,9 @@ public class Main {
         secondBook.returnBook();
         secondBook.returnBook();
     }
-  
-    public static void BartasevichMethod(){
 
+    public static void BartasevichMethod(){
+        System.out.println("********************* Bartasevich *******************");
         Complex complex = new Complex();
         Complex complex1 = new Complex(2, 4);
         double modd = complex1.Abs();

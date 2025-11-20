@@ -1,3 +1,4 @@
+
 package allclasses.prokofev;
 
 import java.math.BigDecimal;
@@ -5,11 +6,13 @@ import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 /**
  * Потокобезопасный кошелёк.
  * - Хранит баланс и историю транзакций.
  * - Поддерживает deposit/withdraw/transfer с валидацией.
  */
+
 public class WalletProkofev {
 
     // ==== Поля ====
@@ -42,7 +45,9 @@ public class WalletProkofev {
 
     // ==== Методы экземпляра ====
 
-    /** Положить деньги на кошелёк. */
+
+/** Положить деньги на кошелёк. */
+
     public void deposit(BigDecimal amount, String note) {
         requirePositive(amount);
         lock.lock();
@@ -54,7 +59,9 @@ public class WalletProkofev {
         }
     }
 
-    /** Снять деньги с кошелька. Бросает IllegalStateException, если не хватает средств. */
+
+/** Снять деньги с кошелька. Бросает IllegalStateException, если не хватает средств. */
+
     public void withdraw(BigDecimal amount, String note) {
         requirePositive(amount);
         lock.lock();
@@ -67,7 +74,9 @@ public class WalletProkofev {
         }
     }
 
-    /** Снимок текущего баланса. */
+
+/** Снимок текущего баланса. */
+
     public BigDecimal getBalance() {
         lock.lock();
         try {
@@ -77,7 +86,9 @@ public class WalletProkofev {
         }
     }
 
-    /** Невидоизменяемая копия истории. */
+
+/** Невидоизменяемая копия истории. */
+
     public List<Transaction> getHistorySnapshot() {
         lock.lock();
         try {
@@ -117,9 +128,11 @@ public class WalletProkofev {
 
     // ==== Статические методы ====
 
-    /**
+
+/**
      * Перевод между кошельками c упорядоченной блокировкой, чтобы избежать deadlock.
      */
+
     public static void transfer(WalletProkofev from, WalletProkofev to, BigDecimal amount, String note) {
         if (from == null || to == null) {
             throw new IllegalArgumentException("from/to is null");
@@ -230,3 +243,4 @@ public class WalletProkofev {
         b.getHistorySnapshot().forEach(System.out::println);
     }
 }
+

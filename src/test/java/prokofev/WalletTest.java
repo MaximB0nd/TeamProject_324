@@ -1,3 +1,4 @@
+
 package prokofev;
 
 import allclasses.prokofev.WalletProkofev;
@@ -94,4 +95,5 @@ public class WalletTest {
         Assert.assertEquals(wallet1, wallet2);
     }
 }
+
 
