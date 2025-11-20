@@ -23,7 +23,7 @@ public class WalletTest {
         
         Assert.assertEquals(new BigDecimal("100.00"), wallet.getBalance());
         Assert.assertEquals(1, wallet.getHistorySnapshot().size());
-    }// new
+    }//
     
     @Test
     public void testWithdraw() {
