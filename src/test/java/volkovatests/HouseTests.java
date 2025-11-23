@@ -4,7 +4,8 @@ import allclasses.volkova.House;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class housetests {
+public class HouseTests {
+
     @Test
     public void testHouseCreation() {
         House house = new House("ул. Ленина, 10", 2, 85.5, "белый");
