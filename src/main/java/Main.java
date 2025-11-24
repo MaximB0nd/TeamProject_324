@@ -9,6 +9,7 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
+import allclasses.kukushkin.Student;
 
 public class Main {
     public static void bondarevMethod() {
@@ -180,6 +181,50 @@ public class Main {
         System.out.println("Сокращение 4/8: " + simplified);
     }
 
+    public static void kukushkinMethod() {
+        System.out.println("=== Student Management Demo ===");
+
+        // Создание студентов
+        Student student1 = new Student("Anna Ivanova", 21);
+        Student student2 = new Student("Petr Sidorov", 22);
+
+        // Добавление оценок
+        student1.addGrade(9);
+        student1.addGrade(10);
+        student1.addGrade(8);
+
+        student2.addGrade(7);
+        student2.addGrade(6);
+        student2.addGrade(8);
+
+        // Вывод информации о студентах
+        System.out.println("Student 1: " + student1);
+        System.out.println("Student 2: " + student2);
+
+        // Анализ успеваемости
+        System.out.println("\n--- Academic Performance ---");
+        System.out.println(student1.getName() +
+                " - Average grade: " + student1.calculateAverageGrade() +
+                ", Excellent: " + student1.isExcellentStudent());
+
+        System.out.println(student2.getName() +
+                " - Average grade: " + student2.calculateAverageGrade() +
+                ", Excellent: " + student2.isExcellentStudent());
+
+        // Проверка наличия оценок
+        System.out.println("\n--- Grade Check ---");
+        System.out.println(student1.getName() + " has grade 10: " + student1.hasGrade(10));
+        System.out.println(student2.getName() + " has grade 10: " + student2.hasGrade(10));
+
+        // Обработка исключения
+        System.out.println("\n--- Exception Handling ---");
+        try {
+            student1.addGrade(15); // Неверная оценка
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -190,6 +235,7 @@ public class Main {
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
+        kukushkinMethod();
     }
 
 
