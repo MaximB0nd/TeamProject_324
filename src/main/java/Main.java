@@ -2,6 +2,7 @@ import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
+import allclasses.martyshev.Person;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
 import allclasses.bondarev.Mark;
@@ -179,6 +180,16 @@ public class Main {
         Fractions simplified = new Fractions(4, 8);
         System.out.println("Сокращение 4/8: " + simplified);
     }
+    static void MartyshevMethod() {
+        Person p = new Person("Иван", 20);
+
+        System.out.println("\n=== Тест Мартышева ===");
+
+        p.sayHello();
+
+        System.out.println("Возраст через 5 лет: " + p.getAgeInFiveYears());
+    }
+
 
     public static void main(String[] args) {
         bondarevMethod();
@@ -186,10 +197,12 @@ public class Main {
         BartasevichMethod();
         testWallet();
         larinMethod();
+        MartyshevMethod();
         shulgaMethods();
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
+
     }
 
 
