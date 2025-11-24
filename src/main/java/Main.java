@@ -9,6 +9,7 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
+import allclasses.paromenkova.Student;
 
 public class Main {
     public static void bondarevMethod() {
@@ -180,6 +181,39 @@ public class Main {
         System.out.println("Сокращение 4/8: " + simplified);
     }
 
+    public static void paromenkovaMetod(){
+        System.out.println("=== Testing Student Paromenkova ===");
+        Student student1 = new Student("Иван", "Петров", "15.05.2000", "ИТ-21", 4.7);
+        Student student2 = new Student("Мария", "Иванова", "22.08.2001", "ИТ-22", 4.2);
+        Student student3 = new Student("Алексей", "Сидоров", "10.12.1999", "ИТ-23", 4.9);
+
+        System.out.println("-информация о студентах-");
+        System.out.println(student1.getFullInfo());
+        System.out.println(student2.getFullInfo());
+        System.out.println(student3.getFullInfo());
+
+        System.out.println("\n-статус отличника-");
+        checkExcellentStatus(student1);
+        checkExcellentStatus(student2);
+        checkExcellentStatus(student3);
+
+        System.out.println("\n-обновление оценки-");
+        System.out.println("До обновления: " + student2.getFullInfo());
+        student2.updateGrade(4.6);
+        System.out.println("После обновления: " + student2.getFullInfo());
+        checkExcellentStatus(student2);
+    }
+
+    private static void checkExcellentStatus(Student student) {
+        if (student.isExcellentStudent()) {
+            System.out.println(student.getFirstName() + " " + student.getLastName() +
+                    " - отличник! Средний балл: " + student.getAverageGrade());
+        } else {
+            System.out.println(student.getFirstName() + " " + student.getLastName() +
+                    " - не отличник. Средний балл: " + student.getAverageGrade());
+        }
+    }
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -190,6 +224,7 @@ public class Main {
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
+        paromenkovaMetod();
     }
 
 
