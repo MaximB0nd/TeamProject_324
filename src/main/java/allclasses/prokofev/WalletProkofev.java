@@ -99,7 +99,7 @@ public class WalletProkofev {
                 '}';
     }
 
-   /* @Override
+   @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -108,7 +108,7 @@ public class WalletProkofev {
             return false;
         }
         return id.equals(wallet.id);
-    }*/
+    }
 
     @Override
     public int hashCode() {
