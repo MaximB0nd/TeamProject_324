@@ -5,12 +5,14 @@ import allclasses.prokofev.WalletProkofev;
 import allclasses.martyshev.Person;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
+import allclasses.volkova.House;
 import allclasses.bondarev.Mark;
 import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
 import allclasses.andreeva.Password;
+
 
 public class Main {
     public static void bondarevMethod() {
@@ -50,7 +52,7 @@ public class Main {
         System.out.println("History:");
         wallet.getHistorySnapshot().forEach(System.out::println);
     }
-  
+
     static void mosolovaMethod() {
         Rectangle rect = new Rectangle(5, 10);
         System.out.println("Прямоугольник 5x10:");
@@ -68,6 +70,30 @@ public class Main {
         secondBook.returnBook();
         secondBook.returnBook();
     }
+
+    static void volkovaMethod() {
+        System.out.println("\n*************** Testing House Volkova ***************");
+        System.out.println("Test work house class:");
+
+        House firstHouse = new House("ул. Ленина, 10", 2, 85.5, "белый");
+        // Выводим результаты методов
+        System.out.println(firstHouse.build());
+        System.out.println(firstHouse.renovate());
+
+        House secondHouse = new House("ул. Центральная, 25", 3, 150.8, "желтый");
+        // Выводим результаты методов
+        System.out.println(secondHouse.build());
+        System.out.println(secondHouse.renovate());
+        System.out.println(secondHouse.renovate());
+
+        // Дополнительня информация о домах
+        System.out.println("\nИнформация о домах:");
+        System.out.println(firstHouse.getInfo());
+        System.out.println(secondHouse.getInfo());
+        System.out.println("Первый дом большой? " + firstHouse.isBig());
+        System.out.println("Второй дом большой? " + secondHouse.isBig());
+    }
+
     static void prokudinMethod() {
         Fraction fraction_a = new Fraction(1, 2);
         Fraction fraction_b = new Fraction(3, 4);
@@ -77,7 +103,7 @@ public class Main {
         System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
         System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
     }
-  
+
     public static void BartasevichMethod(){
 
         Complex complex = new Complex();
@@ -154,9 +180,9 @@ public class Main {
         String info = calc.getCalculatorInfo();
         boolean test5 = info.contains("Калькулятор: Test") && info.contains("научный");
         System.out.println("Тест информации о калькуляторе: " + (test5 ? "ПРОЙДЕН ✓" : "НЕ ПРОЙДЕН ✗"));
-        System.out.println("\n" + (test1 && test2 && test3 && test4 && test5 ? 
+        System.out.println("\n" + (test1 && test2 && test3 && test4 && test5 ?
             "Все тесты пройдены успешно! ✓" : "Некоторые тесты не пройдены"));
-    
+
     }
 
     public static void SimonenkoMetod () {
@@ -220,6 +246,7 @@ public class Main {
         BartasevichMethod();
         testWallet();
         larinMethod();
+        volkovaMethod();
         MartyshevMethod();
         shulgaMethods();
         SimonenkoMetod();
@@ -230,5 +257,5 @@ public class Main {
 
 
 }
-   
+
 
