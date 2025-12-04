@@ -2,6 +2,7 @@ import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
+import allclasses.martyshev.Person;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
 import allclasses.volkova.House;
@@ -10,6 +11,7 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
+import allclasses.andreeva.Password;
 
 
 public class Main {
@@ -205,6 +207,38 @@ public class Main {
         Fractions simplified = new Fractions(4, 8);
         System.out.println("Сокращение 4/8: " + simplified);
     }
+    static void MartyshevMethod() {
+        Person p = new Person("Иван", 20);
+
+        System.out.println("\n=== Тест Мартышева ===");
+
+        p.sayHello();
+
+        System.out.println("Возраст через 5 лет: " + p.getAgeInFiveYears());
+    }
+
+
+    public static void andreevaMethod(){
+        String[] testPasswords = {
+                "Weak1!", // слишком короткий
+                "StrongPassword123", // нет специальных символов
+                "qwerty123!@#", // содержит последовательность "qwe"
+                "MySuperStrongP@ssw0rd!", // надежный пароль
+                "abc123!@#", // слишком короткий
+                "PasswordWith123Sequence!", // содержит "ord" (не запрещенная последовательность)
+                "Test123qwe!", // содержит "qwe" - запрещенная последовательность
+        };
+
+        System.out.println("\n\nТестирование надежности паролей:\n");
+
+        for (String pwd : testPasswords) {
+            Password password = new Password(pwd);
+            boolean isPowerful = password.isPowerful();
+
+            System.out.println("Пароль: " + pwd);
+            System.out.println("Надежный: " + (isPowerful ? "Да" : "Нет"));
+        }
+    }
 
     public static void main(String[] args) {
         bondarevMethod();
@@ -213,10 +247,12 @@ public class Main {
         testWallet();
         larinMethod();
         volkovaMethod();
+        MartyshevMethod();
         shulgaMethods();
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
+        andreevaMethod();
     }
 
 
