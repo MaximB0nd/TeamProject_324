@@ -5,6 +5,7 @@ import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
 import allclasses.bondarev.Mark;
+import allclasses.rozhnev.Uchenick;
 import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
@@ -75,6 +76,28 @@ public class Main {
         System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
         System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
     }
+    static void rozhnevMethod(){
+        System.out.println("\n=== Testing Uchenick Rozhnev ===");
+        Uchenick honorsStudent = new Uchenick("Даня", "Рожнев", 9);
+        honorsStudent.addResult(5);
+        honorsStudent.addResult(4.8);
+        honorsStudent.addResult(4.9);
+
+        System.out.println("Учeник 1: " + honorsStudent.getInfo());
+        System.out.println("Выполнено работ: " + honorsStudent.getCompletedAssignments());
+        System.out.println("Отличник? " + (honorsStudent.isExcellent() ? "Да" : "Нет"));
+
+        Uchenick regularStudent = new Uchenick("Павел", "Иванов", 8);
+        regularStudent.addResult(3.5);
+        regularStudent.addResult(4);
+        regularStudent.addResult(3.7);
+        regularStudent.promote();
+
+        System.out.println("\nУчeник 2 (после перевода): " + regularStudent.getInfo());
+        System.out.println("Текущий класс: " + regularStudent.getGradeLevel());
+        System.out.println("Отличник? " + (regularStudent.isExcellent() ? "Да" : "Нет"));
+    }
+
   
     public static void BartasevichMethod(){
 
@@ -184,6 +207,7 @@ public class Main {
         bondarevMethod();
         mosolovaMethod();
         BartasevichMethod();
+        rozhnevMethod();
         testWallet();
         larinMethod();
         shulgaMethods();
@@ -195,4 +219,3 @@ public class Main {
 
 }
    
-
