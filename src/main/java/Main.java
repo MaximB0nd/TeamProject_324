@@ -9,6 +9,12 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
+<<<<<<< Updated upstream
+=======
+import allclasses.andreeva.Password;
+import allclasses.paromenkova.Student;
+import allclasses.isakov.Parrot;
+>>>>>>> Stashed changes
 
 public class Main {
     public static void bondarevMethod() {
@@ -179,6 +185,87 @@ public class Main {
         Fractions simplified = new Fractions(4, 8);
         System.out.println("Сокращение 4/8: " + simplified);
     }
+<<<<<<< Updated upstream
+=======
+    static void MartyshevMethod() {
+        Person p = new Person("Иван", 20);
+
+        System.out.println("\n=== Тест Мартышева ===");
+
+        p.sayHello();
+
+        System.out.println("Возраст через 5 лет: " + p.getAgeInFiveYears());
+    }
+
+
+    public static void andreevaMethod(){
+        String[] testPasswords = {
+                "Weak1!", // слишком короткий
+                "StrongPassword123", // нет специальных символов
+                "qwerty123!@#", // содержит последовательность "qwe"
+                "MySuperStrongP@ssw0rd!", // надежный пароль
+                "abc123!@#", // слишком короткий
+                "PasswordWith123Sequence!", // содержит "ord" (не запрещенная последовательность)
+                "Test123qwe!", // содержит "qwe" - запрещенная последовательность
+        };
+
+        System.out.println("\n\nТестирование надежности паролей:\n");
+
+        for (String pwd : testPasswords) {
+            Password password = new Password(pwd);
+            boolean isPowerful = password.isPowerful();
+
+            System.out.println("Пароль: " + pwd);
+            System.out.println("Надежный: " + (isPowerful ? "Да" : "Нет"));
+        }
+    }
+
+    public static void paromenkovaMetod(){
+        Student student1 = new Student("Иван", "Петров", "15.05.2000", "ИТ-21", 4.7);
+        Student student2 = new Student("Мария", "Иванова", "22.08.2001", "ИТ-22", 4.2);
+        Student student3 = new Student("Алексей", "Сидоров", "10.12.1999", "ИТ-23", 4.9);
+
+        System.out.println("\n\n\n=== ИНФОРМАЦИЯ О СТУДЕНТАХ ===");
+        System.out.println(student1.getFullInfo());
+        System.out.println(student2.getFullInfo());
+        System.out.println(student3.getFullInfo());
+
+        System.out.println("\n=== СТАТУС ОТЛИЧНИКА ===");
+        checkExcellentStatus(student1);
+        checkExcellentStatus(student2);
+        checkExcellentStatus(student3);
+
+        System.out.println("\n=== ОБНОВЛЕНИЕ ОЦЕНКИ ===");
+        System.out.println("До обновления: " + student2.getFullInfo());
+        student2.updateGrade(4.6);
+        System.out.println("После обновления: " + student2.getFullInfo());
+        checkExcellentStatus(student2);
+    }
+
+    private static void checkExcellentStatus(Student student) {
+        if (student.isExcellentStudent()) {
+            System.out.println(student.getFirstName() + " " + student.getLastName() +
+                    " - отличник! Средний балл: " + student.getAverageGrade());
+        } else {
+            System.out.println(student.getFirstName() + " " + student.getLastName() +
+                    " - не отличник. Средний балл: " + student.getAverageGrade());
+        }
+    }
+    static void isakovMethod() {
+        System.out.println("\n=== Testing Parrot Isakov ===");
+
+        Parrot parrot = new Parrot("Кеша", 3);
+
+        System.out.println("Имя попугая: " + parrot.getName());
+        System.out.println("Возраст попугая: " + parrot.getAge());
+
+        System.out.println("Проверка метода say():");
+        parrot.say("Привет!");
+        parrot.say("Я умный попугай!");
+    }
+
+
+>>>>>>> Stashed changes
 
     public static void main(String[] args) {
         bondarevMethod();
@@ -190,6 +277,12 @@ public class Main {
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
+<<<<<<< Updated upstream
+=======
+        andreevaMethod();
+        paromenkovaMetod();
+        isakovMethod();
+>>>>>>> Stashed changes
     }
 
 
