@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import classes.skulyabina.student;
-=======
 import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
@@ -13,7 +10,7 @@ import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
 import allclasses.skulyabina.student;
->>>>>>> main
+
 
 public class Main {
     public static void bondarevMethod() {
@@ -37,7 +34,6 @@ public class Main {
         System.out.println(cat.sleep());
 
         System.out.println("Толстая ли кошка? " + cat.isFat());
->>>>>>> main
     }
     static void testWallet() {
         System.out.println("\n=== Testing WalletProkofev ===");
