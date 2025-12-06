@@ -1,5 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
@@ -29,10 +32,6 @@
             <scope>test</scope>
         </dependency>
 
-
-
-
-
         <!-- модуль взаимодействия Allure и Junit -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -50,16 +49,33 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
+                    <!-- Явно указываем включаемые тесты -->
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                    <!-- Исключаем не тестовые классы -->
+                    <excludes>
+                        <exclude>**/*AbstractTest.java</exclude>
+                        <exclude>**/*BaseTest.java</exclude>
+                    </excludes>
+
+                    <!-- Дополнительные настройки -->
                     <testFailureIgnore>false</testFailureIgnore>
+                    <forkCount>1</forkCount>
+                    <reuseForks>true</reuseForks>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -Xmx1024m
                     </argLine>
+
                     <properties>
                         <property>
                             <name>listener</name>
                             <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
                     </properties>
+
                     <systemProperties>
                         <property>
                             <!-- папка, в которую будут генерироваться отчёты Allure -->
@@ -76,6 +92,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
             <!-- подключение плагина allure-maven для вызова функций Allure с помощью Maven -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
@@ -87,7 +104,4 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>
