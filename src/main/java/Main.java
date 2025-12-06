@@ -26,24 +26,6 @@ public class Main {
         thirdMark.minus();
         fourthMark.set(5);
     }
-    static void skulyabinaMethod() {
-        // Тестируем класс Student
-        System.out.println("\n=== Testing Student class ===");
-        student student1 = new student("Anna", 20, "CS-101");
-        student student2 = new student("Alex", 22, "CS-102");
-
-        student1.displayInfo();
-        student1.study();
-
-        student2.displayInfo();
-        student2.study();
-    }
-
-<<<<<<< HEAD
-    static void main() {
-        bondarevMethod();
-        skulyabinaMethod();
-=======
     static void ValaevaMethod() {
         System.out.println("\n=== Testing Cat Valaeva ===");
 
