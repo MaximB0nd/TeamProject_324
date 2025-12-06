@@ -9,7 +9,6 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
-import allclasses.skulyabina.student;
 
 public class Main {
     public static void bondarevMethod() {
@@ -181,78 +180,6 @@ public class Main {
         System.out.println("Сокращение 4/8: " + simplified);
     }
 
-    public static void SkulyabinaMetod() {
-        System.out.println("=== Тестирование класса Student ===\n");
-
-        // Создание студентов
-        student student1 = new student("Иван Иванов", 20, "CS-101");
-        student student2 = new student("Петр", -5, "AB-12");
-        student student3 = new student("", 18, "Group-A");
-        student student4 = new student("Анна", 21, null);
-
-        System.out.println("Студент 1: " + student1);
-        System.out.println("Студент 2: " + student2);
-        System.out.println("Студент 3: " + student3);
-        System.out.println("Студент 4: " + student4);
-        System.out.println();
-
-        // Тест отображения информации
-        System.out.println("--- Тест displayInfo() ---");
-        System.out.println("Информация о студенте 1:");
-        student1.displayInfo();
-        System.out.println();
-
-        // Тест метода study()
-        System.out.println("--- Тест study() ---");
-        System.out.println("Студент 1 учится:");
-        student1.study();
-        System.out.println("Студент 3 (с пустым именем) учится:");
-        student3.study();
-        System.out.println();
-
-        // Тест с null группой
-        System.out.println("--- Тест с null группой ---");
-        System.out.println("Информация о студенте 4 (группа = null):");
-        student4.displayInfo();
-        System.out.println();
-
-        // Тест сравнения студентов
-        System.out.println("--- Тест сравнения студентов ---");
-        student student5 = new student("Иван Иванов", 20, "CS-101");
-        System.out.println("Создан студент 5 с такими же данными как студент 1");
-        System.out.println("Студент 1 и студент 5 должны иметь одинаковые поля");
-        System.out.println();
-
-        // Тест создания студентов с разными параметрами
-        System.out.println("--- Тест создания студентов ---");
-        System.out.println("Все студенты успешно созданы:");
-        System.out.println("1. Нормальный студент");
-        System.out.println("2. С отрицательным возрастом");
-        System.out.println("3. С пустым именем");
-        System.out.println("4. С null группой");
-        System.out.println();
-
-        // Вывод через reflection (аналог тестов полей)
-        try {
-            System.out.println("--- Проверка полей через reflection ---");
-
-            java.lang.reflect.Field nameField = student1.getClass().getDeclaredField("name");
-            java.lang.reflect.Field ageField = student1.getClass().getDeclaredField("age");
-            java.lang.reflect.Field groupField = student1.getClass().getDeclaredField("group");
-
-            nameField.setAccessible(true);
-            ageField.setAccessible(true);
-            groupField.setAccessible(true);
-
-            System.out.println("Поля студента 1:");
-            System.out.println("Имя: " + nameField.get(student1));
-            System.out.println("Возраст: " + ageField.get(student1));
-            System.out.println("Группа: " + groupField.get(student1));
-
-        } catch (Exception e) {
-            System.out.println("Ошибка при доступе к полям: " + e.getMessage());
-        }
-    }
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -263,7 +190,6 @@ public class Main {
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
-        SkulyabinaMetod();
     }
 
 
