@@ -8,7 +8,7 @@ public class Fraction implements Comparable<Fraction> {
 
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
-            IO.println("Error: Denominator is zero");
+            System.out.println("Error: Denominator is zero");
         }
         else {
             Numerator =  numerator;
