@@ -1,12 +1,16 @@
 package prokudintests;
 
 import allclasses.prokudin.Fraction;
+import jdk.jfr.Name;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Description;
 
 import java.nio.channels.AsynchronousServerSocketChannel;
 
 public class FractionTests {
+    @Name("Создание дробей, когда их существование возможно")
+    @Description("Тест проверяет успешное создание объектов дробей с корректными числителем и знаменателем")
     @Test
     public void create_fractions_when_fractions_valid() {
         try {
@@ -18,7 +22,9 @@ public class FractionTests {
             Assert.fail();
         }
     }
-
+    
+    @Name("Создание дробей, когда их существование невозможно")
+    @Description("Тест проверяет создание дробей с некорректными значениями: отрицательный числитель и нулевой знаменатель")
     @Test
     public void create_fractions_when_fractions_invalid() {
         Fraction fraction_a = new Fraction(-2, 3);
@@ -27,6 +33,8 @@ public class FractionTests {
         // Assert.assertEquals("Error: Denominator is zero",  actualException.getMessage());
     }
 
+    @Name("Сложение дробей с корректными значениями")
+    @Description("Тест проверяет операцию сложения двух дробей без сокращения результата")
     @Test
     public void get_fractions_sum_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,3);
@@ -36,6 +44,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
+    @Name("Сложение дробей с сокращением результата")
+    @Description("Тест проверяет операцию сложения двух дробей с последующим сокращением результата")
     @Test
     public void get_fractions_sum_with_reduction_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,4);
@@ -45,6 +55,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
+    @Name("Вычитание дробей с корректными значениями")
+    @Description("Тест проверяет операцию вычитания двух дробей без сокращения результата")
     @Test
     public void get_fractions_sub_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,3);
@@ -54,6 +66,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
+    @Name("Вычитание дробей с сокращением результата")
+    @Description("Тест проверяет операцию вычитания двух дробей с последующим сокращением результата")
     @Test
     public void get_fractions_sub_with_reduction_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,4);
@@ -63,6 +77,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
+    @Name("Умножение дробей с корректными значениями")
+    @Description("Тест проверяет операцию умножения двух дробей без сокращения результата")
     @Test
     public void get_fractions_multi_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,3);
@@ -72,6 +88,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
+    @Name("Умножение дробей с сокращением результата")
+    @Description("Тест проверяет операцию умножения двух дробей с последующим сокращением результата")
     @Test
     public void get_fractions_multi_with_reduction_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,4);
@@ -81,7 +99,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
-
+    @Name("Деление дробей с корректными значениями")
+    @Description("Тест проверяет операцию деления двух дробей без сокращения результата")
     @Test
     public void get_fractions_div_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,3);
@@ -91,6 +110,8 @@ public class FractionTests {
         Assert.assertEquals(0, fact.compareTo(actual));
     }
 
+    @Name("Деление дробей с сокращением результата")
+    @Description("Тест проверяет операцию деления двух дробей с последующим сокращением результата")
     @Test
     public void get_fractions_div_with_reduction_when_fractions_valid() {
         Fraction fraction_a = new Fraction(2,4);
