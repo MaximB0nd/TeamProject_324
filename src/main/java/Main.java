@@ -14,6 +14,7 @@ import allclasses.sukhorukov.Calculator;
 import allclasses.ivanova.Pizza;
 import allclasses.andreeva.Password;
 import allclasses.paromenkova.Student;
+import allclasses.matveeva.Adult;
 
 
 public class Main {
@@ -290,6 +291,17 @@ public class Main {
         System.out.println("Новая калорийность: " + pizza.getCalories());
     }
 
+    public static void MatveevaMethod() {
+        System.out.println("\nДемонстрация работы класса Adult:");
+        allclasses.matveeva.Adult person = new allclasses.matveeva.Adult("Petr", 30);
+        System.out.println(person.getGreeting());
+        System.out.println("Is adult? " + person.isAdult());
+        allclasses.matveeva.Adult person2 = new allclasses.matveeva.Adult("Mary", 15);
+        System.out.println(person2.getGreeting());
+        System.out.println("Is adult? " + person2.isAdult());
+    }
+
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -305,6 +317,7 @@ public class Main {
         IvanovaMethod();
         andreevaMethod();
         paromenkovaMetod();
+        MatveevaMethod();
     }
 
 
