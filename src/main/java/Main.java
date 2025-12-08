@@ -14,6 +14,7 @@ import allclasses.sukhorukov.Calculator;
 import allclasses.ivanova.Pizza;
 import allclasses.andreeva.Password;
 import allclasses.paromenkova.Student;
+import allclasses.povelichenko.meme;
 
 
 public class Main {
@@ -290,6 +291,13 @@ public class Main {
         System.out.println("Новая калорийность: " + pizza.getCalories());
     }
 
+    public static void povelichenkomethod() {
+        meme.printRandomMeme();
+
+        System.out.println();
+        System.out.println("Отдельно фраза: " + meme.getRandomPhrase());
+        System.out.println("Отдельно звук: " + meme.getRandomSound());
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -305,6 +313,7 @@ public class Main {
         IvanovaMethod();
         andreevaMethod();
         paromenkovaMetod();
+        povelichenkomethod();
     }
 
 
