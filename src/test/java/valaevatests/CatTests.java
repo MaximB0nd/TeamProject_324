@@ -9,7 +9,7 @@ import io.qameta.allure.Step;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class cattests {
+public class CatTests {
 
     @Test
     @DisplayName("Проверка создания кота с корректными параметрами")
