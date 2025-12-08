@@ -11,6 +11,7 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
+import allclasses.ivanova.Pizza;
 import allclasses.andreeva.Password;
 import allclasses.paromenkova.Student;
 
@@ -273,6 +274,22 @@ public class Main {
         }
     }
 
+    public static void IvanovaMethod() {
+        System.out.println("Демонстрация работы класса Pizza:");
+
+        Pizza pizza = new Pizza("medium", 2, true);
+
+        System.out.println("Размер: " + pizza.getSize());
+        System.out.println("Топпингов: " + pizza.getToppings());
+        System.out.println("Сырный бортик: " + pizza.hasCheeseCrust());
+        System.out.println("Калорийность: " + pizza.getCalories());
+
+        pizza.addTopping();
+        System.out.println("Добавили топпинг!");
+        System.out.println("Теперь топпингов: " + pizza.getToppings());
+        System.out.println("Новая калорийность: " + pizza.getCalories());
+    }
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -285,6 +302,7 @@ public class Main {
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
+        IvanovaMethod();
         andreevaMethod();
         paromenkovaMetod();
     }
