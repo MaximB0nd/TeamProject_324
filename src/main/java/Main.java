@@ -106,8 +106,8 @@ public class Main {
         Fraction div = Fraction.Div(fraction_a, fraction_b);
         System.out.printf("Sum: Numerator - %d; Denominator - %d\n", sum.Numerator, sum.Denominator);
         System.out.printf("Sub: Numerator - %d; Denominator - %d\n", sub.Numerator, sub.Denominator);
-        System.out.printf("Multi: Numerator - %d; Denominator - &d\n", multi.Numerator, multi.Denominator);
-        System.out.printf("Div: Numerator - %d; Denominator - &d\n", div.Numerator, div.Denominator );
+        System.out.printf("Multi: Numerator - %d; Denominator - %d\n", multi.Numerator, multi.Denominator);
+        System.out.printf("Div: Numerator - %d; Denominator - %d\n", div.Numerator, div.Denominator );
     }
 
     public static void BartasevichMethod(){
