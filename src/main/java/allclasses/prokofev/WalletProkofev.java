@@ -104,11 +104,13 @@ public class WalletProkofev {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof WalletProkofev wallet)) {
+        if (!(o instanceof WalletProkofev)) {
             return false;
         }
+        WalletProkofev wallet = (WalletProkofev) o;
         return id.equals(wallet.id);
     }
+
 
     @Override
     public int hashCode() {

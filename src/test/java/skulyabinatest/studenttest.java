@@ -1,9 +1,15 @@
 package skulyabinatest;
-import allclasses.skulyabina.student;
 
+import allclasses.skulyabina.student;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
+import io.qameta.allure.TmsLink;
+import io.qameta.allure.Issue;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
@@ -11,6 +17,8 @@ import java.lang.reflect.Field;
 public class studenttest {
 
     private student student;
+    private ByteArrayOutputStream outputStream;
+    private PrintStream originalOut;
 
     @Before
     public void setUp() {
@@ -18,13 +26,19 @@ public class studenttest {
     }
 
     @Test
+    @DisplayName("Проверка создания студента")
+    @Description("Тест проверяет корректное создание объекта студента")
+    @TmsLink("TC-001")
+    @Issue("BUG-001")
     public void testStudentCreation() {
         assertNotNull(student);
     }
 
     @Test
+    @DisplayName("Проверка инициализации полей студента")
+    @Description("Тест проверяет, что поля студента корректно инициализируются через reflection")
+    @TmsLink("TC-002")
     public void testStudentFieldsInitialization() throws Exception {
-        // Получаем доступ к приватным полям через reflection
         Field nameField = student.getClass().getDeclaredField("name");
         Field ageField = student.getClass().getDeclaredField("age");
         Field groupField = student.getClass().getDeclaredField("group");
@@ -33,115 +47,166 @@ public class studenttest {
         ageField.setAccessible(true);
         groupField.setAccessible(true);
 
-        // Проверяем значения полей
-        assertEquals("Иван Иванов", nameField.get(student));
-        assertEquals(20, ageField.get(student));
-        assertEquals("CS-101", groupField.get(student));
+        checkFieldValue("Имя студента", "Иван Иванов", nameField.get(student));
+        checkFieldValue("Возраст студента", 20, ageField.get(student));
+        checkFieldValue("Группа студента", "CS-101", groupField.get(student));
+    }
+
+    @Step("Проверка значения поля {fieldName}")
+    private void checkFieldValue(String fieldName, Object expected, Object actual) {
+        if (expected instanceof String) {
+            assertEquals(expected, actual);
+        } else if (expected instanceof Integer) {
+            assertEquals(expected, actual);
+        }
     }
 
     @Test
+    @DisplayName("Проверка отображения информации о студенте")
+    @Description("Тест проверяет вывод информации о студенте в консоль")
+    @TmsLink("TC-003")
     public void testDisplayInfo() {
-        // Перехватываем вывод в консоль
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(outputStream));
-
+        setupConsoleCapture();
         student.displayInfo();
+        String output = captureConsoleOutput();
 
-        System.setOut(originalOut);
-        String output = outputStream.toString().trim();
-
-        // Проверяем, что вывод содержит все нужные данные
-        assertTrue(output.contains("Student: Иван Иванов"));
-        assertTrue(output.contains("Age: 20"));
-        assertTrue(output.contains("Group: CS-101"));
+        verifyOutputContains("Student: Иван Иванов", output);
+        verifyOutputContains("Age: 20", output);
+        verifyOutputContains("Group: CS-101", output);
     }
 
-    @Test
-    public void testStudy() {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
+    @Step("Настройка перехвата вывода в консоль")
+    private void setupConsoleCapture() {
+        originalOut = System.out;
+        outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
+    }
 
-        student.study();
-
+    @Step("Получение вывода из консоли")
+    private String captureConsoleOutput() {
         System.setOut(originalOut);
-        String output = outputStream.toString().trim();
+        return outputStream.toString().trim();
+    }
 
-        assertEquals("Иван Иванов is studying...", output);
+    @Step("Проверка, что вывод содержит: {expectedText}")
+    private void verifyOutputContains(String expectedText, String actualOutput) {
+        assertTrue("Вывод должен содержать: " + expectedText, actualOutput.contains(expectedText));
     }
 
     @Test
-    public void testStudentWithNegativeAge() throws Exception {
-        student studentWithNegativeAge = new student("Петр", -5, "AB-12");
+    @DisplayName("Проверка метода study()")
+    @Description("Тест проверяет метод изучения студента")
+    @TmsLink("TC-004")
+    @Issue("BUG-002")
+    public void testStudy() {
+        setupConsoleCapture();
+        student.study();
+        String output = captureConsoleOutput();
 
+        verifyOutputEquals("Иван Иванов is studying...", output);
+    }
+
+    @Step("Проверка точного совпадения вывода")
+    private void verifyOutputEquals(String expected, String actual) {
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Проверка студента с отрицательным возрастом")
+    @Description("Тест проверяет создание студента с отрицательным возрастом")
+    @TmsLink("TC-005")
+    public void testStudentWithNegativeAge() throws Exception {
+        student studentWithNegativeAge = createStudent("Петр", -5, "AB-12");
         Field ageField = studentWithNegativeAge.getClass().getDeclaredField("age");
         ageField.setAccessible(true);
 
-        assertEquals(-5, ageField.get(studentWithNegativeAge));
+        verifyFieldValue("Возраст", -5, ageField.get(studentWithNegativeAge));
+    }
+
+    @Step("Создание студента с именем: {name}, возрастом: {age}, группой: {group}")
+    private student createStudent(String name, int age, String group) {
+        return new student(name, age, group);
+    }
+
+    @Step("Проверка значения поля {fieldName}")
+    private void verifyFieldValue(String fieldName, Object expected, Object actual) {
+        assertEquals(expected, actual);
     }
 
     @Test
+    @DisplayName("Проверка студента с пустым именем")
+    @Description("Тест проверяет создание студента с пустым именем")
+    @TmsLink("TC-006")
     public void testStudentWithEmptyName() throws Exception {
-        student studentWithEmptyName = new student("", 18, "Group-A");
-
+        student studentWithEmptyName = createStudent("", 18, "Group-A");
         Field nameField = studentWithEmptyName.getClass().getDeclaredField("name");
         nameField.setAccessible(true);
 
-        assertEquals("", nameField.get(studentWithEmptyName));
+        verifyFieldValue("Имя", "", nameField.get(studentWithEmptyName));
     }
 
     @Test
+    @DisplayName("Проверка студента с null группой")
+    @Description("Тест проверяет создание студента с null значением группы")
+    @TmsLink("TC-007")
     public void testStudentWithNullGroup() throws Exception {
-        student studentWithNullGroup = new student("Анна", 21, null);
-
+        student studentWithNullGroup = createStudent("Анна", 21, null);
         Field groupField = studentWithNullGroup.getClass().getDeclaredField("group");
         groupField.setAccessible(true);
 
-        assertNull(groupField.get(studentWithNullGroup));
+        verifyFieldValue("Группа", null, groupField.get(studentWithNullGroup));
     }
 
     @Test
+    @DisplayName("Проверка displayInfo() с null группой")
+    @Description("Тест проверяет вывод информации о студенте с null группой")
+    @TmsLink("TC-008")
+    @Issue("BUG-003")
     public void testDisplayInfoWithNullGroup() {
-        student studentWithNullGroup = new student("Анна", 21, null);
+        student studentWithNullGroup = createStudent("Анна", 21, null);
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(outputStream));
-
+        setupConsoleCapture();
         studentWithNullGroup.displayInfo();
+        String output = captureConsoleOutput();
 
-        System.setOut(originalOut);
-        String output = outputStream.toString().trim();
+        verifyOutputNotNull(output);
+        verifyOutputContains("Student: Анна", output);
+        verifyOutputContains("Age: 21", output);
+        verifyOutputContains("Group: null", output);
+    }
 
-        // Проверяем, что метод не падает и выводит что-то
+    @Step("Проверка, что вывод не null")
+    private void verifyOutputNotNull(String output) {
         assertNotNull(output);
-        assertTrue(output.contains("Student: Анна"));
-        assertTrue(output.contains("Age: 21"));
-        assertTrue(output.contains("Group: null"));
     }
 
     @Test
+    @DisplayName("Проверка study() с пустым именем")
+    @Description("Тест проверяет метод study() для студента с пустым именем")
+    @TmsLink("TC-009")
     public void testStudyWithEmptyName() {
-        student studentWithEmptyName = new student("", 18, "Group-A");
+        student studentWithEmptyName = createStudent("", 18, "Group-A");
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(outputStream));
-
+        setupConsoleCapture();
         studentWithEmptyName.study();
+        String output = captureConsoleOutput();
 
-        System.setOut(originalOut);
-        String output = outputStream.toString().trim();
-
-        assertEquals(" is studying...", output);
+        verifyOutputEquals(" is studying...", output);
     }
 
     @Test
+    @DisplayName("Сравнение двух студентов")
+    @Description("Тест проверяет сравнение двух одинаковых студентов")
+    @TmsLink("TC-010")
     public void testCompareTwoStudents() throws Exception {
-        student student1 = new student("Иван Иванов", 20, "CS-101");
-        student student2 = new student("Иван Иванов", 20, "CS-101");
+        student student1 = createStudent("Иван Иванов", 20, "CS-101");
+        student student2 = createStudent("Иван Иванов", 20, "CS-101");
 
+        compareStudentFields(student1, student2);
+    }
+
+    @Step("Сравнение полей двух студентов")
+    private void compareStudentFields(student student1, student student2) throws Exception {
         Field nameField = student1.getClass().getDeclaredField("name");
         Field ageField = student1.getClass().getDeclaredField("age");
         Field groupField = student1.getClass().getDeclaredField("group");
@@ -157,8 +222,13 @@ public class studenttest {
         String group1 = (String) groupField.get(student1);
         String group2 = (String) groupField.get(student2);
 
-        assertEquals(name1, name2);
-        assertEquals(age1, age2);
-        assertEquals(group1, group2);
+        verifyFieldsEqual("Имена", name1, name2);
+        verifyFieldsEqual("Возраст", age1, age2);
+        verifyFieldsEqual("Группы", group1, group2);
+    }
+
+    @Step("Проверка равенства {fieldName}")
+    private void verifyFieldsEqual(String fieldName, Object value1, Object value2) {
+        assertEquals(fieldName + " должны совпадать", value1, value2);
     }
 }
