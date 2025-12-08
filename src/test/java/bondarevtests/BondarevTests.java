@@ -28,13 +28,10 @@ public class BondarevTests {
     @TmsLink("TestCase-Mark-002")
     @Issue("BUG-Mark-002")
     public void constructorWithValue_ShouldSetValueInValidRange() {
-        // Проверка установки значения 3
         assertEquals(3, new Mark(3).get(), DELTA);
 
-        // Проверка установки значения 7 (должно стать 5)
         assertEquals(5, new Mark(7).get(), DELTA);
 
-        // Проверка установки отрицательного значения (должно стать 0)
         assertEquals(0, new Mark(-2).get(), DELTA);
     }
 
