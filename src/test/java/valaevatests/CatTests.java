@@ -21,12 +21,10 @@ public class CatTests {
         verifyCatAttributes(cat, "Барсик", 3, 4.5, "рыжий");
     }
 
-    @Step("Создание кота с параметрами: имя={name}, возраст={age}, вес={weight}, цвет={color}")
     public Cat createCat(String name, int age, double weight, String color) {
         return new Cat(name, age, weight, color);
     }
 
-    @Step("Проверка атрибутов кота")
     public void verifyCatAttributes(Cat cat, String name, int age, double weight, String color) {
         assertEquals(name, cat.getName());
         assertEquals(age, cat.getAge());
@@ -73,7 +71,6 @@ public class CatTests {
         assertEquals(7.5, cat.getWeight(), 0.01);
     }
 
-    @Step("Установка веса кота: {weight}")
     public void setCatWeight(Cat cat, double weight) {
         cat.setWeight(weight);
     }
