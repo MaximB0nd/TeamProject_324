@@ -2,14 +2,19 @@ import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
+import allclasses.martyshev.Person;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
+import allclasses.volkova.House;
 import allclasses.bondarev.Mark;
 import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
 import allclasses.ivanova.Pizza;
+import allclasses.andreeva.Password;
+import allclasses.paromenkova.Student;
+
 
 public class Main {
     public static void bondarevMethod() {
@@ -49,7 +54,7 @@ public class Main {
         System.out.println("History:");
         wallet.getHistorySnapshot().forEach(System.out::println);
     }
-  
+
     static void mosolovaMethod() {
         Rectangle rect = new Rectangle(5, 10);
         System.out.println("Прямоугольник 5x10:");
@@ -67,6 +72,30 @@ public class Main {
         secondBook.returnBook();
         secondBook.returnBook();
     }
+
+    static void volkovaMethod() {
+        System.out.println("\n*************** Testing House Volkova ***************");
+        System.out.println("Test work house class:");
+
+        House firstHouse = new House("ул. Ленина, 10", 2, 85.5, "белый");
+        // Выводим результаты методов
+        System.out.println(firstHouse.build());
+        System.out.println(firstHouse.renovate());
+
+        House secondHouse = new House("ул. Центральная, 25", 3, 150.8, "желтый");
+        // Выводим результаты методов
+        System.out.println(secondHouse.build());
+        System.out.println(secondHouse.renovate());
+        System.out.println(secondHouse.renovate());
+
+        // Дополнительня информация о домах
+        System.out.println("\nИнформация о домах:");
+        System.out.println(firstHouse.getInfo());
+        System.out.println(secondHouse.getInfo());
+        System.out.println("Первый дом большой? " + firstHouse.isBig());
+        System.out.println("Второй дом большой? " + secondHouse.isBig());
+    }
+
     static void prokudinMethod() {
         Fraction fraction_a = new Fraction(1, 2);
         Fraction fraction_b = new Fraction(3, 4);
@@ -76,7 +105,7 @@ public class Main {
         System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
         System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
     }
-  
+
     public static void BartasevichMethod(){
 
         Complex complex = new Complex();
@@ -153,9 +182,9 @@ public class Main {
         String info = calc.getCalculatorInfo();
         boolean test5 = info.contains("Калькулятор: Test") && info.contains("научный");
         System.out.println("Тест информации о калькуляторе: " + (test5 ? "ПРОЙДЕН ✓" : "НЕ ПРОЙДЕН ✗"));
-        System.out.println("\n" + (test1 && test2 && test3 && test4 && test5 ? 
+        System.out.println("\n" + (test1 && test2 && test3 && test4 && test5 ?
             "Все тесты пройдены успешно! ✓" : "Некоторые тесты не пройдены"));
-    
+
     }
 
     public static void SimonenkoMetod () {
@@ -180,6 +209,70 @@ public class Main {
         Fractions simplified = new Fractions(4, 8);
         System.out.println("Сокращение 4/8: " + simplified);
     }
+    static void MartyshevMethod() {
+        Person p = new Person("Иван", 20);
+
+        System.out.println("\n=== Тест Мартышева ===");
+
+        p.sayHello();
+
+        System.out.println("Возраст через 5 лет: " + p.getAgeInFiveYears());
+    }
+
+
+    public static void andreevaMethod(){
+        String[] testPasswords = {
+                "Weak1!", // слишком короткий
+                "StrongPassword123", // нет специальных символов
+                "qwerty123!@#", // содержит последовательность "qwe"
+                "MySuperStrongP@ssw0rd!", // надежный пароль
+                "abc123!@#", // слишком короткий
+                "PasswordWith123Sequence!", // содержит "ord" (не запрещенная последовательность)
+                "Test123qwe!", // содержит "qwe" - запрещенная последовательность
+        };
+
+        System.out.println("\n\nТестирование надежности паролей:\n");
+
+        for (String pwd : testPasswords) {
+            Password password = new Password(pwd);
+            boolean isPowerful = password.isPowerful();
+
+            System.out.println("Пароль: " + pwd);
+            System.out.println("Надежный: " + (isPowerful ? "Да" : "Нет"));
+        }
+    }
+
+    public static void paromenkovaMetod(){
+        Student student1 = new Student("Иван", "Петров", "15.05.2000", "ИТ-21", 4.7);
+        Student student2 = new Student("Мария", "Иванова", "22.08.2001", "ИТ-22", 4.2);
+        Student student3 = new Student("Алексей", "Сидоров", "10.12.1999", "ИТ-23", 4.9);
+
+        System.out.println("\n\n\n=== ИНФОРМАЦИЯ О СТУДЕНТАХ ===");
+        System.out.println(student1.getFullInfo());
+        System.out.println(student2.getFullInfo());
+        System.out.println(student3.getFullInfo());
+
+        System.out.println("\n=== СТАТУС ОТЛИЧНИКА ===");
+        checkExcellentStatus(student1);
+        checkExcellentStatus(student2);
+        checkExcellentStatus(student3);
+
+        System.out.println("\n=== ОБНОВЛЕНИЕ ОЦЕНКИ ===");
+        System.out.println("До обновления: " + student2.getFullInfo());
+        student2.updateGrade(4.6);
+        System.out.println("После обновления: " + student2.getFullInfo());
+        checkExcellentStatus(student2);
+    }
+
+    private static void checkExcellentStatus(Student student) {
+        if (student.isExcellentStudent()) {
+            System.out.println(student.getFirstName() + " " + student.getLastName() +
+                    " - отличник! Средний балл: " + student.getAverageGrade());
+        } else {
+            System.out.println(student.getFirstName() + " " + student.getLastName() +
+                    " - не отличник. Средний балл: " + student.getAverageGrade());
+        }
+    }
 
     public static void IvanovaMethod() {
         System.out.println("Демонстрация работы класса Pizza:");
@@ -203,14 +296,18 @@ public class Main {
         BartasevichMethod();
         testWallet();
         larinMethod();
+        volkovaMethod();
+        MartyshevMethod();
         shulgaMethods();
         SimonenkoMetod();
         ValaevaMethod();
         sukhorukovMethod();
         IvanovaMethod();
+        andreevaMethod();
+        paromenkovaMetod();
     }
 
 
 }
-   
+
 
