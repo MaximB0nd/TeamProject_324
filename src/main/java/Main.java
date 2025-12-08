@@ -11,8 +11,10 @@ import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
+import allclasses.ivanova.Pizza;
 import allclasses.andreeva.Password;
 import allclasses.paromenkova.Student;
+import allclasses.povelichenko.meme;
 
 
 public class Main {
@@ -274,6 +276,30 @@ public class Main {
         }
     }
 
+    public static void IvanovaMethod() {
+        System.out.println("Демонстрация работы класса Pizza:");
+
+        Pizza pizza = new Pizza("medium", 2, true);
+
+        System.out.println("Размер: " + pizza.getSize());
+        System.out.println("Топпингов: " + pizza.getToppings());
+        System.out.println("Сырный бортик: " + pizza.hasCheeseCrust());
+        System.out.println("Калорийность: " + pizza.getCalories());
+
+        pizza.addTopping();
+        System.out.println("Добавили топпинг!");
+        System.out.println("Теперь топпингов: " + pizza.getToppings());
+        System.out.println("Новая калорийность: " + pizza.getCalories());
+    }
+
+    public static void povelichenkomethod() {
+        meme.printRandomMeme();
+
+        System.out.println();
+        System.out.println("Отдельно фраза: " + meme.getRandomPhrase());
+        System.out.println("Отдельно звук: " + meme.getRandomSound());
+    }
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -285,10 +311,13 @@ public class Main {
         shulgaMethods();
         SimonenkoMetod();
         ValaevaMethod();
+        sukhorukovMethod();
+        IvanovaMethod();
+        andreevaMethod();
+        paromenkovaMetod();
+        povelichenkomethod();
         prokudinMethod();
     }
-
-
 }
 
 

@@ -29,10 +29,6 @@
             <scope>test</scope>
         </dependency>
 
-
-
-
-
         <!-- модуль взаимодействия Allure и Junit -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
