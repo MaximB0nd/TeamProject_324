@@ -297,6 +297,7 @@ public class Main {
         System.out.println();
         System.out.println("Отдельно фраза: " + meme.getRandomPhrase());
         System.out.println("Отдельно звук: " + meme.getRandomSound());
+	}
 
     public static void main(String[] args) {
         bondarevMethod();
