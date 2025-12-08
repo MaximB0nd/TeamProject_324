@@ -61,7 +61,8 @@ public class Main {
         System.out.println("Прямоугольник 5x10:");
         System.out.println("Площадь: " + rect.getArea());
         System.out.println("Периметр: " + rect.getPerimeter());
-	}
+    }
+
     static void larinMethod()
     {
         System.out.println("Test work book class:");

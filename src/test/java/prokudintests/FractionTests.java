@@ -4,6 +4,7 @@ import allclasses.prokudin.Fraction;
 import jdk.jfr.Name;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Description;
 import io.qameta.allure.Description;
 
 import java.nio.channels.AsynchronousServerSocketChannel;
@@ -22,6 +23,7 @@ public class FractionTests {
             Assert.fail();
         }
     }
+    
 
     @Name("Создание дробей, когда их существование невозможно")
     @Description("Тест проверяет создание дробей с некорректными значениями: отрицательный числитель и нулевой знаменатель")
