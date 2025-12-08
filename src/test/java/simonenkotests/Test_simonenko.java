@@ -1,15 +1,12 @@
 package simonenkotests;
 
-import org.junit.Assert;
 import org.junit.Test;
 import allclasses.simonenko.Fractions;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class test_simonenko {
+public class Test_simonenko {
     @Test
     public void testAdd() {
         Fractions a = new Fractions(1, 2);
