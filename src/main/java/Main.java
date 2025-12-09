@@ -55,6 +55,7 @@ public class Main {
     }
 
     static void mosolovaMethod() {
+        System.out.println("=== Метод Мосоловой - тестирование класса Rectangle * ===");
         Rectangle rect = new Rectangle(5, 10);
         System.out.println("Прямоугольник 5x10:");
         System.out.println("Площадь: " + rect.getArea());
