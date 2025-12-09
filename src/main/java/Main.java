@@ -1,20 +1,21 @@
-import allclasses.prokudin.Fraction;
-import allclasses.mosolova.Rectangle;
-import allclasses.bartasevich.Complex;
-import allclasses.prokofev.WalletProkofev;
-import allclasses.martyshev.Person;
 import java.math.BigDecimal;
-import allclasses.larin.Book;
-import allclasses.volkova.House;
-import allclasses.bondarev.Mark;
-import allclasses.shulga.Triangle;
-import allclasses.simonenko.Fractions;
-import allclasses.valaeva.Cat;
-import allclasses.sukhorukov.Calculator;
-import allclasses.ivanova.Pizza;
+
 import allclasses.andreeva.Password;
+import allclasses.bartasevich.Complex;
+import allclasses.bondarev.Mark;
+import allclasses.ivanova.Pizza;
+import allclasses.larin.Book;
+import allclasses.martyshev.Person;
+import allclasses.mosolova.Rectangle;
 import allclasses.paromenkova.Student;
 import allclasses.povelichenko.meme;
+import allclasses.prokofev.WalletProkofev;
+import allclasses.prokudin.Fraction;
+import allclasses.shulga.Triangle;
+import allclasses.simonenko.Fractions;
+import allclasses.sukhorukov.Calculator;
+import allclasses.valaeva.Cat;
+import allclasses.volkova.House;
 
 
 public class Main {
@@ -292,6 +293,7 @@ public class Main {
     }
 
     public static void povelichenkomethod() {
+        System.out.println();
         meme.printRandomMeme();
 
         System.out.println();
