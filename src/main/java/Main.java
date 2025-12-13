@@ -16,6 +16,7 @@ import allclasses.andreeva.Password;
 import allclasses.paromenkova.Student;
 import allclasses.povelichenko.meme;
 import allclasses.skulyabina.student;
+import allclasses.isakov.Parrot;
 
 
 public class Main {
@@ -62,7 +63,8 @@ public class Main {
         System.out.println("Прямоугольник 5x10:");
         System.out.println("Площадь: " + rect.getArea());
         System.out.println("Периметр: " + rect.getPerimeter());
-	}
+    }
+
     static void larinMethod()
     {
         System.out.println("Test work book class:");
@@ -373,6 +375,20 @@ public class Main {
         }
     }
 
+    static void isakovMethod() {
+        System.out.println("\n=== Testing Parrot Isakov ===");
+
+        Parrot parrot = new Parrot("Кеша", 3);
+
+        System.out.println("Имя попугая: " + parrot.getName());
+        System.out.println("Возраст попугая: " + parrot.getAge());
+
+        System.out.println("Проверка метода say():");
+        parrot.say("Привет!");
+        parrot.say("Я умный попугай!");
+    }
+
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
@@ -391,6 +407,7 @@ public class Main {
         povelichenkomethod();
         prokudinMethod();
         SkulyabinaMetod();
+        isakovMethod();
     }
 }
 

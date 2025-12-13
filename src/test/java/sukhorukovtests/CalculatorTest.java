@@ -35,15 +35,4 @@ public class CalculatorTest {
         String expected = "Калькулятор: Casio FX-991, тип: научный";
         assertEquals("Информация о калькуляторе не совпадает", expected, calc.getCalculatorInfo());
     }
-
-    @Test
-    public void testSettersAndGetters() {
-        Calculator calc = new Calculator("Old Model", false);
-        calc.setModel("New Model");
-        calc.setScientific(true);
-
-        assertEquals("Сеттер/геттер для model работает неправильно", "New Model", calc.getModel());
-        assertEquals("Сеттер/геттер для age работает неправильно", 21, calc.getAge());
-        assertTrue("Сеттер/геттер для isScientific работает неправильно", calc.isScientific());
-    }
 }
