@@ -1,7 +1,7 @@
-import allclasses.prokudin.Fraction;
+// allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
-import allclasses.prokofev.WalletProkofev;
+//import allclasses.prokofev.WalletProkofev;
 import allclasses.martyshev.Person;
 import java.math.BigDecimal;
 import allclasses.larin.Book;
@@ -13,6 +13,7 @@ import allclasses.valaeva.Cat;
 import allclasses.sukhorukov.Calculator;
 import allclasses.andreeva.Password;
 import allclasses.paromenkova.Student;
+import allclasses.korobova.circle;
 
 
 public class Main {
@@ -39,20 +40,20 @@ public class Main {
 
         System.out.println("Толстая ли кошка? " + cat.isFat());
     }
-    static void testWallet() {
-        System.out.println("\n=== Testing WalletProkofev ===");
-        WalletProkofev wallet = new WalletProkofev("TestUser");
-        System.out.println("Created wallet: " + wallet);
-        
-        wallet.deposit(new BigDecimal("100.50"), "Initial deposit");
-        System.out.println("After deposit: " + wallet.getBalance());
-        
-        wallet.withdraw(new BigDecimal("30.00"), "Purchase");
-        System.out.println("After withdraw: " + wallet.getBalance());
-        
-        System.out.println("History:");
-        wallet.getHistorySnapshot().forEach(System.out::println);
-    }
+    //static void testWallet() {
+    //    System.out.println("\n=== Testing WalletProkofev ===");
+    //    WalletProkofev wallet = new WalletProkofev("TestUser");
+    //    System.out.println("Created wallet: " + wallet);
+
+    //    wallet.deposit(new BigDecimal("100.50"), "Initial deposit");
+     //   System.out.println("After deposit: " + wallet.getBalance());
+
+     //   wallet.withdraw(new BigDecimal("30.00"), "Purchase");
+    //    System.out.println("After withdraw: " + wallet.getBalance());
+
+    //    System.out.println("History:");
+    //    wallet.getHistorySnapshot().forEach(System.out::println);
+    //}
 
     static void mosolovaMethod() {
         Rectangle rect = new Rectangle(5, 10);
@@ -95,15 +96,15 @@ public class Main {
         System.out.println("Второй дом большой? " + secondHouse.isBig());
     }
 
-    static void prokudinMethod() {
-        Fraction fraction_a = new Fraction(1, 2);
-        Fraction fraction_b = new Fraction(3, 4);
+    //static void prokudinMethod() {
+    //    Fraction fraction_a = new Fraction(1, 2);
+    //    Fraction fraction_b = new Fraction(3, 4);
 
-        System.out.println("Sum" + Fraction.Sum(fraction_a, fraction_b));
-        System.out.println("Sub" + Fraction.Sub(fraction_a, fraction_b));
-        System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
-        System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
-    }
+     //   System.out.println("Sum" + Fraction.Sum(fraction_a, fraction_b));
+     //   System.out.println("Sub" + Fraction.Sub(fraction_a, fraction_b));
+     //   System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
+     //   System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
+    //}
 
     public static void BartasevichMethod(){
 
@@ -273,11 +274,26 @@ public class Main {
         }
     }
 
+    public static void korobovaMethod() {
+        System.out.println("\n=== Testing Circle Korobova ===");
+
+        circle circle1 = new circle(5);
+        circle circle2 = new circle(2.5);
+
+        System.out.println("Circle 1 (radius = 5):");
+        System.out.println("  Area: " + circle1.getArea());
+        System.out.println("  Circumference: " + circle1.getCircumference());
+
+        System.out.println("Circle 2 (radius = 2.5):");
+        System.out.println("  Area: " + circle2.getArea());
+        System.out.println("  Circumference: " + circle2.getCircumference());
+    }
+
     public static void main(String[] args) {
         bondarevMethod();
         mosolovaMethod();
         BartasevichMethod();
-        testWallet();
+        //testWallet();
         larinMethod();
         volkovaMethod();
         MartyshevMethod();
@@ -287,6 +303,7 @@ public class Main {
         sukhorukovMethod();
         andreevaMethod();
         paromenkovaMetod();
+        korobovaMethod();
     }
 
 
