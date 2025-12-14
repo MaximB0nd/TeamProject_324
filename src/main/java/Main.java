@@ -12,7 +12,7 @@ import allclasses.povelichenko.meme;
 import allclasses.prokofev.WalletProkofev;
 
 import allclasses.shulga.Triangle;
-import allclasses.simonenko.Fractions;
+
 
 import allclasses.valaeva.Cat;
 import allclasses.volkova.House;
@@ -141,28 +141,7 @@ public class Main {
      
     }
 
-    public static void SimonenkoMetod () {
-        // Создание дробей
-        Fractions frac1 = new Fractions(1, 2);
-        Fractions frac2 = new Fractions(3, 4);
-        Fractions frac3 = new Fractions(5);
-
-        System.out.println("Дробь 1: " + frac1);
-        System.out.println("Дробь 2: " + frac2);
-        System.out.println("Дробь 3: " + frac3);
-
-        // Сложение
-        Fractions sum = frac1.add(frac2);
-        System.out.println(frac1 + " + " + frac2 + " = " + sum);
-
-        // Вычитание
-        Fractions difference = frac1.subtract(frac2);
-        System.out.println(frac1 + " - " + frac2 + " = " + difference);
-
-        // Сокращение дробей
-        Fractions simplified = new Fractions(4, 8);
-        System.out.println("Сокращение 4/8: " + simplified);
-    }
+   
     static void MartyshevMethod() {
         Person p = new Person("Иван", 20);
 
@@ -262,7 +241,6 @@ public class Main {
         volkovaMethod();
         MartyshevMethod();
         shulgaMethods();
-        SimonenkoMetod();
         ValaevaMethod();
 
         IvanovaMethod();
