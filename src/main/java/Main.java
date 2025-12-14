@@ -1,3 +1,4 @@
+import allclasses.golubev.Piano;
 import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
@@ -387,6 +388,24 @@ public class Main {
         parrot.say("Привет!");
         parrot.say("Я умный попугай!");
     }
+    public static void golubevMethod(){
+        System.out.println("\n=== Testing Piano Golubev ===");
+
+        Piano piano1 = new Piano(6);
+
+        System.out.println("Громкость пианино1: " + piano1.getVolume());
+
+        System.out.println("Проверка метода increaseVolume():");
+        piano1.increaseVolume();
+        System.out.println("Громкость пианино1: " + piano1.getVolume());
+        Piano piano2 = new Piano(15);
+        System.out.println("Громкость пианино2: " + piano2.getVolume());
+        System.out.println("Проверка метода setVolume():");
+        piano2.setVolume(9);
+        System.out.println("Громкость пианино2: " + piano2.getVolume());
+
+
+    }
 
 
     public static void main(String[] args) {
@@ -408,6 +427,7 @@ public class Main {
         prokudinMethod();
         SkulyabinaMetod();
         isakovMethod();
+        golubevMethod();
     }
 }
 
