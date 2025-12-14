@@ -10,7 +10,7 @@ import allclasses.mosolova.Rectangle;
 import allclasses.paromenkova.Student;
 import allclasses.povelichenko.meme;
 import allclasses.prokofev.WalletProkofev;
-import allclasses.prokudin.Fraction;
+
 import allclasses.shulga.Triangle;
 import allclasses.simonenko.Fractions;
 import allclasses.sukhorukov.Calculator;
@@ -96,16 +96,6 @@ public class Main {
         System.out.println(secondHouse.getInfo());
         System.out.println("Первый дом большой? " + firstHouse.isBig());
         System.out.println("Второй дом большой? " + secondHouse.isBig());
-    }
-
-    static void prokudinMethod() {
-        Fraction fraction_a = new Fraction(1, 2);
-        Fraction fraction_b = new Fraction(3, 4);
-
-        System.out.println("Sum" + Fraction.Sum(fraction_a, fraction_b));
-        System.out.println("Sub" + Fraction.Sub(fraction_a, fraction_b));
-        System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
-        System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
     }
 
     public static void BartasevichMethod(){
