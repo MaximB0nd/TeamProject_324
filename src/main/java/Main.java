@@ -264,7 +264,7 @@ public class Main {
         shulgaMethods();
         SimonenkoMetod();
         ValaevaMethod();
-        sukhorukovMethod();
+
         IvanovaMethod();
         andreevaMethod();
         paromenkovaMetod();
