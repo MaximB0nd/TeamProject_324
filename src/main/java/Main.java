@@ -1,42 +1,39 @@
-import allclasses.prokofev.WalletProkofev;
 import java.math.BigDecimal;
-import allclasses.larin.Book;
+import allclasses.nikiforov.CalculatorFirst;
 
-public class Main {
+
+public class Main
+{
     static void bondarevMethod() {
         System.out.println("asdasd");
     }
     
-    static void testWallet() {
-        System.out.println("\n=== Testing WalletProkofev ===");
-        WalletProkofev wallet = new WalletProkofev("TestUser");
-        System.out.println("Created wallet: " + wallet);
-        
-        wallet.deposit(new BigDecimal("100.50"), "Initial deposit");
-        System.out.println("After deposit: " + wallet.getBalance());
-        
-        wallet.withdraw(new BigDecimal("30.00"), "Purchase");
-        System.out.println("After withdraw: " + wallet.getBalance());
-        
-        System.out.println("History:");
-        wallet.getHistorySnapshot().forEach(System.out::println);
-    }
 
-    static void larinMethod()
-    {
-        System.out.println("Test work book class:");
-        Book firstBook = new Book("Алгоритмы и структуры данных", true);
-        firstBook.borrowBook();
-        firstBook.returnBook();
-        Book secondBook = new Book("Два капитана", false);
-        secondBook.borrowBook();
-        secondBook.returnBook();
-        secondBook.returnBook();
+
+    static void nikiforovMethod() {
+        System.out.println("########Тестирование работы класса CalculatorFirst:########");
+
+        CalculatorFirst firstCalc = new CalculatorFirst();
+        int sum   = firstCalc.add(10, 5);
+        int sub   = firstCalc.subtract(10, 5);
+        int multi = firstCalc.multiply(10, 5);
+        double div   = firstCalc.divide(10, 5);
+
+        System.out.printf("First calc results - sum: %d; sub: %d; multi: %d; div: %d",
+                sum,
+                sub,
+                multi,
+                div
+        );
+
+        CalculatorFirst secondCalc = new CalculatorFirst();
+        secondCalc.add(20, 10);
+        secondCalc.divide(20, 4);
+        secondCalc.divide(20, 2);
+        System.out.println("################Успех!################");
     }
 
     public static void main(String[] args) {
-        bondarevMethod();
-        testWallet();
-        larinMethod();
+        nikiforovMethod();
     }
 }
