@@ -1,10 +1,11 @@
+import java.math.BigDecimal;
+
 import allclasses.golubev.Piano;
 import allclasses.prokudin.Fraction;
 import allclasses.mosolova.Rectangle;
 import allclasses.bartasevich.Complex;
 import allclasses.prokofev.WalletProkofev;
 import allclasses.martyshev.Person;
-import java.math.BigDecimal;
 import allclasses.larin.Book;
 import allclasses.volkova.House;
 import allclasses.bondarev.Mark;
@@ -18,7 +19,7 @@ import allclasses.paromenkova.Student;
 import allclasses.povelichenko.meme;
 import allclasses.skulyabina.student;
 import allclasses.isakov.Parrot;
-
+import allclasses.nikiforov.CalculatorFirst;
 
 public class Main {
     public static void bondarevMethod() {
@@ -151,7 +152,7 @@ public class Main {
 
         return;
     }
-     public static void sukhorukovMethod() {
+    public static void sukhorukovMethod() {
         System.out.println("=== Демонстрация работы класса Calculator ===");
         Calculator calc1 = new Calculator("Casio FX-991", true);
         Calculator calc2 = new Calculator("Simple Calc", false);
@@ -416,9 +417,33 @@ public class Main {
         System.out.println(person2.getGreeting());
         System.out.println("Is adult? " + person2.isAdult());
     }
+  
+    public static void nikiforovMethod() {
+        System.out.println("########Тестирование работы класса CalculatorFirst:########");
+
+        CalculatorFirst firstCalc = new CalculatorFirst();
+        int sum   = firstCalc.add(10, 5);
+        int sub   = firstCalc.subtract(10, 5);
+        int multi = firstCalc.multiply(10, 5);
+        double div   = firstCalc.divide(10, 5);
+
+        System.out.printf("First calc results - sum: %d; sub: %d; multi: %d; div: %d",
+                sum,
+                sub,
+                multi,
+                div
+        );
+
+        CalculatorFirst secondCalc = new CalculatorFirst();
+        secondCalc.add(20, 10);
+        secondCalc.divide(20, 4);
+        secondCalc.divide(20, 2);
+        System.out.println("################Успех!################");
+    }
 
 
     public static void main(String[] args) {
+        nikiforovMethod();
         bondarevMethod();
         mosolovaMethod();
         BartasevichMethod();
