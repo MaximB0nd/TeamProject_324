@@ -105,11 +105,14 @@ public class Main {
     static void prokudinMethod() {
         Fraction fraction_a = new Fraction(1, 2);
         Fraction fraction_b = new Fraction(3, 4);
-
-        System.out.println("Sum" + Fraction.Sum(fraction_a, fraction_b));
-        System.out.println("Sub" + Fraction.Sub(fraction_a, fraction_b));
-        System.out.println("Multi" + Fraction.Multi(fraction_a, fraction_b));
-        System.out.println("Div" + Fraction.Div(fraction_a, fraction_b));
+        Fraction sum = Fraction.Sum(fraction_a, fraction_b);
+        Fraction sub = Fraction.Sub(fraction_a, fraction_b);
+        Fraction multi = Fraction.Multi(fraction_a, fraction_b);
+        Fraction div = Fraction.Div(fraction_a, fraction_b);
+        System.out.printf("Sum: Numerator - %d; Denominator - %d\n", sum.Numerator, sum.Denominator);
+        System.out.printf("Sub: Numerator - %d; Denominator - %d\n", sub.Numerator, sub.Denominator);
+        System.out.printf("Multi: Numerator - %d; Denominator - %d\n", multi.Numerator, multi.Denominator);
+        System.out.printf("Div: Numerator - %d; Denominator - %d\n", div.Numerator, div.Denominator );
     }
 
     public static void BartasevichMethod(){
