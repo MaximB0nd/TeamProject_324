@@ -97,7 +97,7 @@ public class KareninTest {
 
         assertEquals(6.0, scaled.getWidth(), DELTA);
         assertEquals(8.0, scaled.getHeight(), DELTA);
-        assertEquals(24.0, scaled.getArea(), DELTA); // площадь увеличится в 4 раза
+        assertEquals(48.0, scaled.getArea(), DELTA); // площадь увеличится в 4 раза
     }
 
     @Test
